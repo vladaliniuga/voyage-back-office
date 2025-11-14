@@ -6,6 +6,16 @@ import { useEffect, useMemo, useState, useCallback } from 'react';
 const NAV = [
   {
     type: 'section',
+    title: 'Operations',
+    id: 'operations',
+    collapsible: false,
+    items: [
+      { label: 'Vehicle Status', href: '/vehicle-status' },
+      { label: 'Reservations', href: '/reservations' },
+    ],
+  },
+  {
+    type: 'section',
     title: 'Admin',
     id: 'admin',
     collapsible: false,
@@ -148,12 +158,12 @@ export default function SideNav({ open, onClose, currentUser }) {
           <img
             src="/voyage-logo.png"
             alt="logo"
-            className="w-[150px] mx-auto"
+            className="w-[200px] mx-auto"
           />
         </div>
 
         {/* Scrollable nav area */}
-        <div className="min-h-0 flex-1 overflow-y-auto pr-1">
+        <div className="min-h-0 flex-1 overflow-y-auto pr-1 mt-3">
           <nav className="space-y-2">
             {items.map((node, idx) => {
               if (node.type === 'link') {
