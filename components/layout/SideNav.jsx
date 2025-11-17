@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo, useState, useCallback } from 'react';
@@ -11,6 +12,7 @@ const NAV = [
     collapsible: false,
     items: [
       { label: 'Vehicle Status', href: '/vehicle-status' },
+      { label: 'Lot manager', href: '/lot-manager' },
       { label: 'Reservations', href: '/reservations' },
     ],
   },

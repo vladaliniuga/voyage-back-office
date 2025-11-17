@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Header from './Header';
-import SideNav from './SideNav';
+import SideNav from '../SideNav';
 import Breadcrumbs from './Breadcrumbs';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
