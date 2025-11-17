@@ -160,7 +160,7 @@ export default function SideNav({ open, onClose, currentUser }) {
           <img
             src="/voyage-logo.png"
             alt="logo"
-            className="w-[200px] mx-auto"
+            className="w-[170px] mx-auto"
           />
         </div>
 

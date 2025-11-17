@@ -67,6 +67,12 @@ function ReservationsIndex() {
     });
   }, [startDate, endDate]);
 
+  /* ===== Derived: filter to out-of-service events (no extra state) ===== */
+  const filteredData = useMemo(
+    () => rows.filter((row) => row.status !== 'oos'), // or !== 'oos' depending on intent
+    [rows]
+  );
+
   /* ---------- Table columns (UsersIndex-style) ---------- */
   const columns = useMemo(
     () => [
@@ -148,8 +154,8 @@ function ReservationsIndex() {
         <div>
           <h1 className="text-lg font-bold">Reservations</h1>
           <p className="text-xs text-slate-600">
-            Showing <strong>{rows.length}</strong> reservations with start dates
-            between <strong>{fmtMDY(startDate)}</strong> and{' '}
+            Showing <strong>{filteredData.length}</strong> reservations with
+            start dates between <strong>{fmtMDY(startDate)}</strong> and{' '}
             <strong>{fmtMDY(endDate)}</strong>.
           </p>
         </div>
@@ -191,7 +197,7 @@ function ReservationsIndex() {
         </div>
       </div>
 
-      <Table columns={columns} rows={rows} empty="No reservations." />
+      <Table columns={columns} rows={filteredData} empty="No reservations." />
     </>
   );
 }
